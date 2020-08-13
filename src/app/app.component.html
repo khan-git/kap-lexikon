@@ -1,0 +1,13 @@
+<button mat-icon-button color="primary" (click)="openPocketModal()">
+  <mat-icon>save</mat-icon>
+</button>
+<span style="font-weight: bolder; font-size: x-large;">{{owners[ownedPos]}}</span>
+<app-pocketlist
+(swipeup)="onSwipeUp($event);"
+(swipedown)="onSwipeDown($event);"
+  [pocketlist]="pocketlist" 
+  [included]="getOwned()"
+  [double]="getDouble()"
+  [editable]="owners[ownedPos] != 'alla'"
+  (dataChanged)="sparaData($event)" >
+</app-pocketlist>

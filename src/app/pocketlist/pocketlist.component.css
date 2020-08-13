@@ -1,0 +1,42 @@
+.doublebadge {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.nrbadge {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.nrbadge {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.bluedit {
+    color: blue;
+}
+
+.rededit {
+    color: red;
+}
+
+.smallducks {
+    max-width: 110px;
+    max-height: 130px;
+}

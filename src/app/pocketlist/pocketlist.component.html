@@ -1,0 +1,30 @@
+<button mat-icon-button color="primary" (click)="firstNumber=0; updateSize()">
+    <mat-icon [ngStyle]="{'transform':'rotate(180deg)'}">keyboard_tab</mat-icon>
+</button>
+<button mat-icon-button color="primary" (click)="previousPage()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+</button>
+<button mat-icon-button color="primary" (click)="nextPage()">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+</button>
+<button mat-icon-button color="primary" (click)="firstNumber=pocketlist.length-1; updateSize()">
+    <mat-icon >keyboard_tab</mat-icon>
+</button>
+<button mat-icon-button [ngClass]="{'bluedit': !toggleEdit, 'rededit': toggleEdit}" (click)="toggleEdit= editable ? !toggleEdit: false; toggleDoubleEdit=false;">
+    <mat-icon>edit</mat-icon>
+</button>
+<button mat-icon-button [ngClass]="{'bluedit': !toggleDoubleEdit, 'rededit': toggleDoubleEdit}" (click)="toggleDoubleEdit= editable ? !toggleDoubleEdit: false; toggleEdit=false;">
+    <mat-icon>view_array</mat-icon>
+</button>
+<mat-grid-list cols="{{numCols}}" rowHeight="{{rowHeight}}">
+    <mat-grid-tile *ngFor="let pocket of visibleList; let nr = index;" [colspan]="1" (click)="openPocketModal(pocket)">
+      <img  (swipeleft)="onSwipeLeft($event)"
+      (swiperight)="onSwipeRight($event)" 
+      src="assets/{{pocket.large[0]}}" 
+      alt="Nr {{nr+1}}" 
+      class="smallducks" 
+      [style.opacity]="isIncluded(pocket.nr)">
+      <span class="nrbadge">{{pocket.nr}}</span>
+      <span class="doublebadge" *ngIf="isDouble(pocket.nr)"><mat-icon color="warning">view_array</mat-icon></span>
+    </mat-grid-tile>
+</mat-grid-list>
